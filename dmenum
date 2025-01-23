@@ -1,0 +1,22 @@
+#!/bin/bash
+
+dmenu="dmenu -nf #BBBBBB -nb #222222 -sb #0F0F0F -sf #EEEEEE -fn UbuntuMono-10 -l 20"
+choice=$(echo -e "выполнить\nтерминал\nпроводник\nбраузер\nразработка\nигры\nтворчество\nофис\nинтернет\nнастройки\nсистема\ns.выключить\nr.перезагрузка\nl.заблокировать\nz.сон" | $dmenu)
+
+case "$choice" in
+	выполнить) exec gmrun & ;;
+	терминал) exec lxterminal & ;;
+	проводник) exec pcmanfm & ;;
+	браузер) exec firefox & ;;
+	разработка) dmenum-dev & ;;
+	игры) dmenum-games & ;;
+	творчество) dmenum-cre & ;;
+	офис) dmenum-office & ;;
+	интернет) dmenum-web & ;;
+	настройки) dmenum-settings & ;;
+	система) dmenum-sys & ;;
+	s.выключить) loginctl poweroff & ;;
+	r.перезагрузка) loginctl reboot & ;;
+	l.заблокировать) xautolock -locknow ;;
+	z.сон) xautolock -locknow && sleep 2 && loginctl suspend ;;
+esac

@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dmenu="dmenu -nf #BBBBBB -nb #222222 -sb #0F0F0F -sf #EEEEEE -fn UbuntuMono-10 -l 20"
+choice=$(echo -e "firefox-esr\nconnman-gtk" | $dmenu)
+
+case "$choice" in
+	firefox) exec firefox & ;;
+	connman-gtk) exec connman-gtk & ;;
+esac

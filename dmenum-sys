@@ -1,0 +1,13 @@
+#!/bin/bash
+
+dmenu="dmenu -nf #BBBBBB -nb #222222 -sb #0F0F0F -sf #EEEEEE -fn UbuntuMono-10 -l 20"
+choice=$(echo -e "galculator\nlxterminal\nhtop\nxterm\nconnman-gtk\nurxvt" | $dmenu)
+
+case "$choice" in
+	galculator) exec galculator & ;;
+	lxterminal) exec lxterminal & ;;
+	htop) exec lxterminal -e htop & ;;
+	xterm) exec xterm & ;;
+	connman-gtk) exec connman-gtk & ;;
+	urxvt) exec urxvt & ;;
+esac

@@ -1,0 +1,16 @@
+#!/bin/bash
+
+dmenu="dmenu -nf #BBBBBB -nb #222222 -sb #0F0F0F -sf #EEEEEE -fn UbuntuMono-10 -l 20"
+choice=$(echo -e "шрифты\nfontforge\ngimp\npaint\ngpicview\naudacity\nrhythmbox\nsimplescreenrecorder\nvokoscreen" | $dmenu)
+
+case "$choice" in
+	шрифты) exec gtk2fontsel & ;;
+	fontforge) exec fontforge & ;;
+	gimp) exec gimp & ;;
+	paint) exec mtpaint & ;;
+	gpicview) exec gpicview & ;;
+	audacity) exec audacity & ;;
+	rhythmbox) exec rhythmbox & ;;
+	simplescreenrecorder) exec simplescreenrecorder & ;;
+	vokoscreen) exec vokoscreenNG & ;;
+esac

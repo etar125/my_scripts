@@ -1,0 +1,12 @@
+#!/bin/bash
+
+dmenu="dmenu -nf #BBBBBB -nb #222222 -sb #0F0F0F -sf #EEEEEE -fn UbuntuMono-10 -l 20"
+choice=$(echo -e "внешка\nqt5\nqt6\nopenbox\ntint2" | $dmenu)
+
+case "$choice" in
+	внешка) exec lxappearance & ;;
+	qt5) exec qt5ct & ;;
+	qt6) exec qt6ct & ;;
+	openbox) exec obconf & ;;
+	tint2) exec tint2conf & ;;
+esac

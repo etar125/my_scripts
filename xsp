@@ -1,0 +1,5 @@
+#!/bin/bash
+while [ 0 == 0 ]; do
+    xkb-set
+    sleep 1800
+done

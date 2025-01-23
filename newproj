@@ -1,0 +1,13 @@
+#!/bin/bash
+if [ $# -eq 0 ]; then
+	echo "нет аргументов"
+	exit
+fi
+
+DIR=~/docs/$1
+mkdir -p $DIR
+mkdir $DIR/src
+mkdir $DIR/bin
+mkdir $DIR/docs
+touch $DIR/makefile
+

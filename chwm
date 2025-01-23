@@ -1,0 +1,21 @@
+echo "1) Icewm Session"
+echo "2) Fluxbox"
+echo "3) FLWM"
+read num
+
+case $num in
+1)
+	export WMS=icewm-session
+;;
+2)
+	export WMS=fluxbox
+;;
+3)
+	export WMS=flwm
+;;
+*)
+	echo "номер введи"
+	exit 0
+;;
+esac
+startx

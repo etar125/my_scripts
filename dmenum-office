@@ -1,0 +1,13 @@
+#!/bin/bash
+
+dmenu="dmenu -nf #BBBBBB -nb #222222 -sb #0F0F0F -sf #EEEEEE -fn UbuntuMono-10 -l 20"
+choice=$(echo -e "VKM\nlibreoffice\nwriter\ncalc\ndraw\nimpress" | $dmenu)
+
+case "$choice" in
+	vkm) exec vk-messenger ;;
+	libreoffice) exec libreoffice & ;;
+	writer) exec libreoffice --writer & ;;
+	calc) exec libreoffice --calc & ;;
+	draw) exec libreoffice --draw & ;;
+	impress) exec libreoffice -impress & ;;
+esac

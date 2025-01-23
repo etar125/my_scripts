@@ -1,0 +1,9 @@
+#!/bin/bash
+
+dmenu="dmenu -nf #BBBBBB -nb #222222 -sb #0F0F0F -sf #EEEEEE -fn UbuntuMono-10 -l 20"
+choice=$(echo -e "dosbox\nsteam" | $dmenu)
+
+case "$choice" in
+	dosbox) exec dosbox & ;;
+	steam) exec steam & ;;
+esac
