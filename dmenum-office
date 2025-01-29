@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dmenu="dmenu -nf #BBBBBB -nb #222222 -sb #0F0F0F -sf #EEEEEE -fn UbuntuMono-10 -l 20"
+dmenu="dmenu -fn Hack-10 -l 20"
 choice=$(echo -e "VKM\nlibreoffice\nwriter\ncalc\ndraw\nimpress" | $dmenu)
 
 case "$choice" in
