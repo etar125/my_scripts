@@ -1,0 +1,4 @@
+#!/bin/sh
+for a in $@; do
+    echo "ignorepkg=$a" >> /etc/xbps.d/10-ignore.conf
+done
