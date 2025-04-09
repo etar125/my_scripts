@@ -1,2 +1,2 @@
-#!/bin/sh
-$1 &>/dev/null & disown
+#!/bin/bash
+$1 &> /dev/null & disown
