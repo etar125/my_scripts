@@ -1,0 +1,10 @@
+#!/bin/sh
+filename = $(date +%Y-%m-%e-%H-%M-%S).png
+if [ "$1" == "-s" ]; then
+    maim -s $filename
+elif [ "$1" == "-p" ]; then
+    maim -s $filename
+    mtpaint $filename
+else
+    maim $filename
+fi
