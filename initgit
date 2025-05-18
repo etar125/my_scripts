@@ -1,0 +1,6 @@
+#!/bin/bash
+git init
+cp ~/wl ./LICENSE
+git add LICENSE
+git commit -m "WTFPL"
+fork 'git gui'
