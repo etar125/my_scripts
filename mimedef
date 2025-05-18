@@ -1,0 +1,17 @@
+#!/bin/bash
+image=("avif","bmp","gif","jpeg","jpg","png","svg","svg+xml","webp","tiff","x-bmp","x-png","x-webp")
+video=("avi","mkv","mp4","mp4v","fli","flv","mpeg","webm","x-avi","x-flv","x-m4v","x-matroska","x-mpeg2","x-mpeg3")
+audio=("m4a","mp3","mp4","flac","aiff","eac3","dv","basic","acc","ac3","ogg","opus","mpeg2","mpeg3","mpg","wav","webm","x-aac","x-aiff","x-mp3","x-mpeg","x-vorbis","x-wav")
+if [[ "$2" == "image" ]]; then
+    for type in $image; do
+        xdg-mime default "$1" image/$type
+    done
+elif [[ "$2" == "video" ]]; then
+    for type in $video; do
+        xdg-mime default "$1" video/$type
+    done
+elif [[ "$2" == "audio" ]]; then
+    for type in $audio; do
+        xdg-mime default "$1" audio/$type
+    done
+fi
