@@ -1,6 +1,8 @@
 #!/bin/bash
 git init
-cp ~/wl ./LICENSE
+license=$(ls -1 ~/.licenses | smenu)
+cp ~/.licenses/$license ./LICENSE
+[ ! $? -eq 0 ] && exit 1
 git add LICENSE
-git commit -m "WTFPL"
+git commit -m "$license"
 fork 'git gui'

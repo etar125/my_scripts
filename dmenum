@@ -18,5 +18,5 @@ case "$choice" in
 	s.выключить) loginctl poweroff & ;;
 	r.перезагрузка) loginctl reboot & ;;
 	l.заблокировать) xautolock -locknow ;;
-	z.сон) xautolock -locknow && sleep 2 && loginctl suspend-then-hibernate ;;
+	z.сон) mysleep ;;
 esac
