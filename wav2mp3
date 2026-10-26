@@ -1,0 +1,65 @@
+#!/bin/sh
+# wav to mp3 with metadata converter
+# etar125
+# Copyright (c) 2026 etar125 Admanse
+# 
+# Permission to use, copy, modify, and/or distribute this software for any purpose with or without fee is hereby granted, provided that the above copyright notice and this permission notice appear in all copies.
+# 
+# THE SOFTWARE IS PROVIDED “AS IS” AND THE AUTHOR DISCLAIMS ALL WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
+
+if [ $# -eq 0 ] || [ -z "$1" ]; then
+    echo "wav2mp3 file.wav [title]"
+    exit 1
+fi
+
+if [ $# -gt 2 ]; then
+    echo "warning: only first two args will be processed"
+fi
+
+if [ $# -ge 2 ]; then
+    title="$2"
+else
+    title="$(basename -s .wav $1)"
+fi
+
+if [ ! -f "mp3info" ]; then
+    echo -n "mp3info not found, create example? [Y/n]: "
+    read answer
+    case "${answer:-Y}" in
+        [Yy]*)
+            cat > mp3info << EOF
+artist="your nickname"
+album="album name"
+date="2026-04-18"
+comment="Created with LMMS"
+cover="/path/to/cover.png"
+EOF
+            ;;
+    esac
+    exit 0
+fi
+
+. ./mp3info
+
+args="-i $1"
+
+if [ -n "$cover" ]; then
+    args="$args -i $cover -map 0:a -map 1:v"
+fi
+
+args="$args -c:a libmp3lame -b:a 256k"
+# 
+# if [ -n "$artist" ]; then
+#     args="$args -metadata artist=$artist"
+# fi
+# if [ -n "$album" ]; then
+#     args="$args -metadata album=$album"
+# fi
+# if [ -n "$date" ]; then
+#     args="$args -metadata date=$date"
+# fi
+# if [ -n "$title" ]; then
+#     args="$args -metadata title=$title"
+# fi
+
+ffmpeg $args -metadata artist="$artist" -metadata album="$album" -metadata date="$date" -metadata title="$title" -metadata comment="$comment" "$(basename -s .wav $1).mp3"
