@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dmenu="dmenu -fn Hack-10 -l 20"
+dmenu="dmenu -fn Terminus-11 -l 20"
 choice=$(echo -e "шрифты\nfontforge\ngimp\npaint\ngpicview\naudacity\nrhythmbox\nsimplescreenrecorder\nvokoscreen" | $dmenu)
 
 case "$choice" in

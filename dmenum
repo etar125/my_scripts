@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dmenu="dmenu -fn Hack-10 -l 20"
+dmenu="dmenu -fn Terminus-11 -l 20"
 choice=$(echo -e "выполнить\nтерминал\nпроводник\nбраузер\nразработка\nигры\nтворчество\nофис\nинтернет\nнастройки\nсистема\ns.выключить\nr.перезагрузка\nl.заблокировать\nz.сон" | $dmenu)
 
 case "$choice" in

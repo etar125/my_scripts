@@ -1,6 +1,6 @@
 #!/bin/bash
 
-dmenu="dmenu -fn Hack-10 -l 20"
+dmenu="dmenu -fn Terminus-11 -l 20"
 choice=$(echo -e "galculator\nlxterminal\nhtop\nxterm\nconnman-gtk\nurxvt" | $dmenu)
 
 case "$choice" in
